@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Contato - Amazon</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; color: #0f1111; }
+
+        /* Header */
+        header { background: #131921; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #fff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+        .logo span { color: #ff9900; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; }
+        .nav-links a:hover, .active { border: 1px solid #fff; border-radius: 3px; }
+        .cart { color: #fff; font-size: 1.3rem; position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background: #ff9900; color: #131921; 
+                       border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; 
+                       display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+        /* Hero */
+        .hero { padding: 8rem 5% 3rem; background: linear-gradient(135deg, #232f3e, #131921); 
+                text-align: center; color: #fff; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .highlight { color: #ff9900; }
+
+        /* Contact Section */
+        .contact { padding: 4rem 5%; background: #f3f3f3; }
+        .container { max-width: 1200px; margin: 0 auto; display: grid; 
+                     grid-template-columns: 1fr 2fr; gap: 3rem; background: #fff; 
+                     border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+
+        /* Info Side */
+        .info { background: linear-gradient(135deg, #232f3e, #131921); padding: 3rem; color: #fff; }
+        .info h2 { color: #ff9900; margin-bottom: 2rem; }
+        .info-item { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .info-icon { font-size: 2rem; background: rgba(255,153,0,0.2); width: 50px; height: 50px; 
+                     border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .info-item h3 { color: #ff9900; margin-bottom: 0.3rem; }
+        .info-item p { color: rgba(255,255,255,0.9); }
+
+        /* Form Side */
+        .form-container { padding: 3rem; }
+        .form-container h2 { color: #131921; margin-bottom: 1rem; }
+        .form-container > p { color: #565959; margin-bottom: 2rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #ddd; 
+                                                   border-radius: 8px; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #ff9900; }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .btn { background: #ff9900; color: #fff; padding: 1rem 3rem; border: none; 
+               border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1.1rem; }
+        .btn:hover { background: #f3a847; }
+
+        /* FAQ */
+        .faq { padding: 4rem 5%; background: #fff; }
+        .faq h2 { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .faq-container { max-width: 900px; margin: 0 auto; }
+        .faq-item { background: #f3f3f3; border-radius: 10px; margin-bottom: 1rem; overflow: hidden; }
+        .faq-q { padding: 1.5rem; cursor: pointer; font-weight: bold; display: flex; 
+                 justify-content: space-between; align-items: center; }
+        .faq-q:hover { background: #e8e8e8; }
+        .faq-q::after { content: '+'; font-size: 1.5rem; color: #ff9900; }
+        .faq-q.active::after { content: '−'; }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s; padding: 0 1.5rem; color: #565959; }
+        .faq-a.active { max-height: 300px; padding: 0 1.5rem 1.5rem; }
+
+        /* Footer */
+        footer { background: #131921; color: #fff; padding: 2rem 5%; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                       gap: 2rem; margin-bottom: 2rem; }
+        footer-dev { background: #131921; color: #fff; font-size: 1.2rem; text-align: center; padding: 3rem 5%; }
+        .footer-section h3 { color: #ff9900; margin-bottom: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .footer-links a:hover { color: #ff9900; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><span>▶</span>amazon</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="categoria.html">Categorias</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+            <div class="cart">🛒<span class="cart-count">3</span></div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Entre em <span class="highlight">Contato</span></h1>
+        <p>Estamos aqui para ajudar você!</p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <!-- Info -->
+            <div class="info">
+                <h2>Fale Conosco</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>0800 123 4567<br>Seg-Sex: 8h às 20h</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📧</div>
+                    <div>
+                        <h3>E-mail</h3>
+                        <p>contato@amazon.com.br<br>Resposta em até 24h</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">💬</div>
+                    <div>
+                        <h3>Chat Online</h3>
+                        <p>Atendimento 24/7<br>Resposta imediata</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <h3>Endereço</h3>
+                        <p>Av. Paulista, 1000<br>São Paulo - SP</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="form-container">
+                <h2>Envie sua Mensagem</h2>
+                <p>Preencha o formulário e entraremos em contato</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Nome Completo *</label>
+                        <input type="text" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail *</label>
+                        <input type="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="tel" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assunto *</label>
+                        <input type="text" required placeholder="Como podemos ajudar?">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mensagem *</label>
+                        <textarea required placeholder="Descreva sua dúvida ou sugestão..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2>Perguntas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-q">Como rastreio meu pedido?</div>
+                <div class="faq-a">Acesse "Meus Pedidos" no menu superior e clique em "Rastrear pedido". Você verá todas as informações de entrega em tempo real.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Qual o prazo de entrega?</div>
+                <div class="faq-a">O prazo varia conforme sua localização e o produto. Produtos Prime têm frete grátis e entrega em até 2 dias úteis.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Como faço uma devolução?</div>
+                <div class="faq-a">Você tem até 30 dias para devolver produtos. Acesse "Meus Pedidos", selecione o item e clique em "Devolver ou substituir".</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Quais formas de pagamento aceitam?</div>
+                <div class="faq-a">Aceitamos cartão de crédito, débito, boleto bancário, Pix e parcelamento em até 12x sem juros em produtos selecionados.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">O que é Amazon Prime?</div>
+                <div class="faq-a">Amazon Prime é nosso serviço de assinatura com frete grátis ilimitado, ofertas exclusivas e acesso a streaming de vídeo e música.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Conheça-nos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sobre a Amazon</a></li>
+                    <li><a href="#">Carreira</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-dev">
+            <p>Site desenvolvido por:</p>
+            <ul>
+                <li>
+                    Kauan Pereira Rocha 
+                    <a href="https://github.com/kprocha" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    Helberth Renan Gomes De Sousa
+                    <a href="https://github.com/D3LT7-ops" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+    </div>
+
+        <p>&copy; 2024 Amazon.com.br - Projeto Landing Page</p>
+    </footer>
+
+    <script>
+        // Form submit
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-q').forEach(question => {
+            question.addEventListener('click', function() {
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

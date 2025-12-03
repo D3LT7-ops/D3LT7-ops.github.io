@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Categorias - Amazon</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; color: #0f1111; }
+
+        /* Header */
+        header { background: #131921; padding: 1rem 5%; position: fixed; width: 100%; top: 0; z-index: 100; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: #fff; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+        .logo span { color: #ff9900; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: #fff; text-decoration: none; padding: 0.5rem 1rem; }
+        .nav-links a:hover, .active { border: 1px solid #fff; border-radius: 3px; }
+        .cart { color: #fff; font-size: 1.3rem; position: relative; cursor: pointer; }
+        .cart-count { position: absolute; top: -8px; right: -8px; background: #ff9900; color: #131921; 
+                       border-radius: 50%; width: 18px; height: 18px; font-size: 0.7rem; 
+                       display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+        /* Page Header */
+        .page-header { padding: 8rem 5% 3rem; background: linear-gradient(135deg, #232f3e, #131921); 
+                       text-align: center; color: #fff; }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .highlight { color: #ff9900; }
+
+        /* Categories */
+        .categories { padding: 4rem 5%; background: #f3f3f3; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+                gap: 2rem; max-width: 1400px; margin: 0 auto; }
+        .card { background: #fff; border-radius: 10px; padding: 2rem; text-align: center; 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .card-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .card p { color: #565959; margin-bottom: 1rem; }
+        .btn { background: #ff9900; color: #fff; padding: 0.8rem 2rem; border: none; 
+               border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
+        .btn:hover { background: #f3a847; }
+
+        /* Footer */
+        footer { background: #131921; color: #fff; padding: 2rem 5%; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                       gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { color: #ff9900; margin-bottom: 1rem; }
+        .footer-links { list-style: none; }
+
+         footer-dev { background: #131921; color: #fff; font-size: 1.2rem; text-align: center; padding: 3rem 5%; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .footer-links a:hover { color: #ff9900; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><span>▶</span>amazon</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="categoria.html" class="active">Categorias</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="cart">🛒<span class="cart-count">3</span></div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="page-header">
+        <h1>Explore Nossas <span class="highlight">Categorias</span></h1>
+        <p>Encontre exatamente o que você procura</p>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Eletrônicos</h3>
+                <p>Notebooks, smartphones, tablets e acessórios</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👗</div>
+                <h3>Moda</h3>
+                <p>Roupas, calçados e acessórios</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏡</div>
+                <h3>Casa e Cozinha</h3>
+                <p>Móveis, decoração e utensílios</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>Games</h3>
+                <p>Consoles, jogos e acessórios</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📖</div>
+                <h3>Livros</h3>
+                <p>Livros físicos e digitais</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚽</div>
+                <h3>Esportes</h3>
+                <p>Equipamentos e roupas esportivas</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Arte e Papelaria</h3>
+                <p>Materiais para artesanato e escritório</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎧</div>
+                <h3>Áudio</h3>
+                <p>Fones, caixas de som e instrumentos</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h3>Automotivo</h3>
+                <p>Peças e acessórios para veículos</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🐕</div>
+                <h3>Pet Shop</h3>
+                <p>Tudo para seu pet</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💄</div>
+                <h3>Beleza</h3>
+                <p>Cosméticos e cuidados pessoais</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🍼</div>
+                <h3>Bebês</h3>
+                <p>Produtos para bebês e crianças</p>
+                <button class="btn">Ver Produtos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Conheça-nos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sobre a Amazon</a></li>
+                    <li><a href="#">Carreira</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Atendimento</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Central de Ajuda</a></li>
+                    <li><a href="contato.html">Fale Conosco</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-dev">
+            <p>Site desenvolvido por:</p>
+            <ul>
+                <li>
+                    Kauan Pereira Rocha 
+                    <a href="https://github.com/kprocha" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    Helberth Renan Gomes De Sousa
+                    <a href="https://github.com/D3LT7-ops" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <p>&copy; 2024 Amazon.com.br - Projeto Landing Page</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => alert('Redirecionando para produtos...'));
+        });
+    </script>
+</body>
+</html>
